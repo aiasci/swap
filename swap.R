@@ -1,9 +1,16 @@
+# Libraries Required
+if (!require(textreadr)) install.packages('textreadr')
+if (!require(data.table)) install.packages('data.table')
+if (!require(tidytext)) install.packages('tidytext')
+if (!require(dplyr)) install.packages('dplyr')
+if (!require(writexl)) install.packages('writexl')
+
+# Libraries
 library(textreadr)
-
 library(data.table)
-
 library(tidytext)
 library(dplyr)
+library(writexl)
 
 a <- data.table(read_pdf("https://www.tcmb.gov.tr/wps/wcm/connect/a6ffdb2f-47d9-4ae9-8c39-5075867aaec3/TCMB+Tarafli+Swap+Islemleri.pdf?MOD=AJPERES&CACHEID=ROOTWORKSPACE-a6ffdb2f-47d9-4ae9-8c39-5075867aaec3-nzm2YQt%22"))
 
@@ -67,5 +74,7 @@ for (ii in 1:length(sel)) {
 date<-as.Date(Sys.time())
 
 write.csv(mat,paste0(getwd(),'/',date,'.swap.csv'))
+
+write_xlsx(mat,paste0(getwd(),'/',date,'.swap.xlsx'))
 
 
