@@ -66,6 +66,6 @@ for (ii in 1:length(sel)) {
 
 date<-as.Date(Sys.time())
 
-write.csv(mat,paste0(getwd(),'/',date,'swap.csv'))
+write.csv(mat,paste0(getwd(),'/',date,'.swap.csv'))
 
 
